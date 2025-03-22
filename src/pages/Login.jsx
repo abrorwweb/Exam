@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
-
+import Header from "../layout/Header";
 const Login = () => {
   const [formData, setFormData] = useState({
     displayName: "",
@@ -19,12 +19,12 @@ const Login = () => {
   };
 
   return (
-    <div className="flex min-h-screen w-screen">
-      
-      <div className="w-full bg-gradient-to-r from-pink-500 via-purple-500 to-amber-400 bg-[length:200%_200%] animate-gradient flex items-center justify-center">
+    <div className="" >
+      <Header />
+      <div className="w-full bg-gradient-to-r from-yellow-500 via-slate-300 to-pink-400 bg-[length:200%_200%] animate-gradient flex items-center justify-center">
         <form
           onSubmit={handleSubmit}
-          className="px-8 py-5 max-w-96 w-full bg-white shadow-lg rounded-lg dark:bg-gray-950"
+          className=" mt-[80px] mb-[100px] px-8 py-5 max-w-96 w-full bg-white shadow-lg rounded-lg dark:bg-gray-950"
         >
           <h2 className="text-3xl font-bold inline-block mb-3">Login</h2>
           <div className="flex flex-col gap-y-3">

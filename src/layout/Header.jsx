@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
 import { CgSearch } from "react-icons/cg";
-import { TbPhotoScan } from "react-icons/tb";
+import { TbPhoto } from "react-icons/tb";
 import DarkMode from "../components/DarkMode";
 
 const Header = () => {
@@ -49,7 +49,7 @@ const Header = () => {
               className="border rounded-full px-16 py-2 w-full focus:outline-none bg-[#E7E7E7] focus:bg-white"
             />
             <button>
-              <TbPhotoScan className="absolute w-6 h-6 top-2 right-5" />
+              <TbPhoto className="absolute w-6 h-6 top-2 right-5" />
             </button>
           </div>
           <NavLink to="/login" className="text-sm">

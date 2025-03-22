@@ -78,7 +78,7 @@ const RandomImages = () => {
               <div className="skeleton h-32 w-full"></div>
             </div>
           ))}
-      {loader && <p className="text-center col-span-3">Yuklanmoqda...</p>}
+      {loader && <p className="justify-center col-span-3 loading loading-bars loading-xs"></p>}
     </div>
   );
 };

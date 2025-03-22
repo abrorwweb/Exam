@@ -21,7 +21,7 @@ const Register = () => {
   return (
     <div className="flex min-h-screen w-screen">
       <div className="w-2/5 bg-[url('https://picsum.photos/900/1200')] bg-center bg-cover"></div>
-      <div className="w-3/5 bg-gradient-to-r from-pink-500 via-purple-500 to-amber-400 bg-[length:200%_200%] animate-gradient flex items-center justify-center">
+      <div className="w-3/5 bg-gradient-to-r from-blue-500 via-yellow-500 to-slate-300 bg-[length:200%_200%] animate-gradient flex items-center justify-center">
         <form
           onSubmit={handleSubmit}
           className="px-8 py-5 max-w-96 w-full bg-white shadow-lg rounded-lg dark:bg-gray-950"
