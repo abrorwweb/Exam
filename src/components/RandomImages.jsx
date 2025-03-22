@@ -3,17 +3,17 @@ import { getRandomPhotos } from "../api/privateApi";
 import DownloadButton from "./DownloadButton";
 
 const RandomImages = () => {
-  const [image, setImage] = useState([]);
-  const [loader, setLoader] = useState(false);
+  const [photos, setPhotos] = useState([]);
+  const [loading, setLoading] = useState(false);
   const observer = useRef();
 
   const fetchPhotos = useCallback(async () => {
-    if (loader) return;
-    setLoader(true);
+    if (loading) return;
+    setLoading(true);
     const data = await getRandomPhotos(30);
-    setImage((prevPhotos) => [...prevPhotos, ...data]);
-    setLoader(false);
-  }, [loader]);
+    setPhotos((prevPhotos) => [...prevPhotos, ...data]);
+    setLoading(false);
+  }, [loading]);
 
   useEffect(() => {
     fetchPhotos();
@@ -21,7 +21,7 @@ const RandomImages = () => {
 
   const lastPhotoRef = useCallback(
     (node) => {
-      if (loader) return;
+      if (loading) return;
       if (observer.current) observer.current.disconnect();
       observer.current = new IntersectionObserver((entries) => {
         if (entries[0].isIntersecting) {
@@ -30,24 +30,31 @@ const RandomImages = () => {
       });
       if (node) observer.current.observe(node);
     },
-    [loader, fetchPhotos]
+    [loading, fetchPhotos]
   );
 
   return (
-    <div className="py-10 grid grid-cols-3 gap-4">
-      {image.length > 0
-        ? image.map((photo, index) => {
-            if (index === image.length - 1) {
+    <div
+      className="py-10 mx-auto grid gap-4"
+      style={{
+        gridTemplateColumns: "repeat(auto-fit, minmax(250px, 1fr))",
+        gridAutoFlow: "dense",
+      }}
+    >
+      {photos.length > 0
+        ? photos.map((photo, index) => {
+            const uniqueKey = `${photo.id}-${index}`;
+            if (index === photos.length - 1) {
               return (
                 <div
                   ref={lastPhotoRef}
-                  key={photo.id}
-                  className="rounded-md overflow-hidden shadow-lg relative"
+                  key={uniqueKey}
+                  className="rounded-lg overflow-hidden shadow-lg relative"
                 >
                   <img
                     src={photo.urls.small}
                     alt={photo.alt_description}
-                    className="w-full h-48 object-cover "
+                    className="w-full h-full object-cover"
                   />
                   <DownloadButton
                     url={photo.urls.full}
@@ -58,13 +65,13 @@ const RandomImages = () => {
             }
             return (
               <div
-                key={photo.id}
-                className=" rounded-xl hover:rounded-md cursor-pointer overflow-hidden shadow-lg relative transition-transform duration-300 hover:scale-95 hover:rotate-6 hover:shadow-xl"
+                key={uniqueKey}
+                className="rounded-lg overflow-hidden shadow-lg relative"
               >
                 <img
                   src={photo.urls.small}
                   alt={photo.alt_description}
-                  className="w-full h-48 object-cover"
+                  className="w-full h-full object-cover"
                 />
                 <DownloadButton
                   url={photo.urls.full}
@@ -74,11 +81,14 @@ const RandomImages = () => {
             );
           })
         : Array.from({ length: 10 }).map((_, index) => (
-            <div key={index} className="flex w-full flex-col gap-4">
+            <div
+              key={`skeleton-${index}`}
+              className="flex w-full flex-col gap-4"
+            >
               <div className="skeleton h-32 w-full"></div>
             </div>
           ))}
-      {loader && <p className="justify-center col-span-3 loading loading-bars loading-xs"></p>}
+      {loading && <p className="text-center col-span-3">Yuklanmoqda...</p>}
     </div>
   );
 };
