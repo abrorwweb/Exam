@@ -1,5 +1,5 @@
 import React from "react";
-import kamina from "../../../public/image/kamina.jpg";
+import kamina from "../../../src/image/kamina.jpg";
 
 function About() {
   return (
