@@ -213,7 +213,6 @@ const Header = () => {
                 >
                   <div className="flex flex-col gap-4 text-sm dark:text-white">
                     <div>
-                      <h3 className="font-bold mb-2">Company</h3>
                       <ul className="space-y-1 flex flex-col gap-y-2">
                         <motion.li whileHover={{ x: 5 }}>
                           <NavLink to={"/"} className="hover:text-blue-500 dark:hover:text-blue-400">Home</NavLink>

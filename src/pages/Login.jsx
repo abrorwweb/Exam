@@ -3,7 +3,7 @@ import { NavLink } from "react-router-dom";
 import useAuth from "../hooks/useAuth";
 import { FcGoogle } from "react-icons/fc";
 import DarkMode from "../components/DarkMode";
-
+import Home from "./Home"
 
 const Login = () => {
   const [formData, setFormData] = useState({ email: "", password: "" });
@@ -18,6 +18,8 @@ const Login = () => {
     e.preventDefault();
     await login(formData.email, formData.password);
   };
+
+const {Home} = useAuth();
 
   return (
     <div className="flex min-h-screen w-screen">
@@ -60,6 +62,7 @@ const Login = () => {
           >
             Login with <FcGoogle />
           </button>
+          <NavLink className="btn btn-dash btn-" to={"/"}>Home</NavLink>
           <NavLink className="btn btn-secondary" to={"/register"}>Register</NavLink>
         </form>
       </div>
