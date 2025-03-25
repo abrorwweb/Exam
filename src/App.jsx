@@ -1,34 +1,88 @@
-import { Routes, Route } from "react-router-dom";
-import Home from "./pages/Home";
+import React, { useContext, useEffect } from "react";
+import {
+  createBrowserRouter,
+  Navigate,
+  RouterProvider,
+} from "react-router-dom";
 import Layout from "./layout/Layout";
-import Register from "./pages/Register";
-import Login from "./pages/Login";
-import About from "./pages/About";
-import DarkModeProvider from "./layout/DarkModeProvider";
-import ProtectedRoute from "./components/ProtectedRoute";
-import Profile from "./pages/Profile";
-import Likes from "./pages/Likes";
+import Home from "./pages/home/Home";
+import About from "./pages/about/About";
+import Contact from "./pages/contact/Contaxt";
+import Like from "./pages/like/Like";
+import Download from "./pages/download/Download";
+import ImageInfo from "./pages/ImageInfo/ImageInfo";
+import Register, { action as RegisterAction } from "./pages/register/Register";
+import Login, { action as LoginAction } from "./pages/login/Login";
+import ProtectedRoutes from "./components/ProtectedRoutes";
+import { GlobalContext } from "./context/globalContext";
+import { onAuthStateChanged } from "firebase/auth";
+import { auth } from "./firebase/firebaseConfig";
+import Profile from "./pages/profile/Profile";
+// import { action as HomeActions } from "./pages/home/Home";
 
+function App() {
+  let { user, dispatch, authReady } = useContext(GlobalContext);
 
+  const routes = createBrowserRouter([
+    {
+      path: "/",
+      element: (
+        <ProtectedRoutes user={user}>
+          <Layout />
+        </ProtectedRoutes>
+      ),
+      children: [
+        {
+          index: true,
+          element: <Home />,
+          // action: HomeActions,
+        },
+        {
+          path: "/about",
+          element: <About />,
+        },
+        {
+          path: "/contact",
+          element: <Contact />,
+        },
+        {
+          path: "/likes",
+          element: <Like />,
+        },
+        {
+          path: "/download-images",
+          element: <Download />,
+        },
+        {
+          path: "/image-info",
+          element: <ImageInfo />,
+        },
+        {
+          path: "/profile",
+          element: <Profile />,
+        },
+      ],
+    },
+    {
+      path: "/register",
+      element: user ? <Navigate to="/" /> : <Register />,
+      action: RegisterAction,
+    },
+    {
+      path: "/login",
+      element: user ? <Navigate to="/" /> : <Login />,
+      action: LoginAction,
+    },
+  ]);
 
+  useEffect(() => {
+    onAuthStateChanged(auth, (user) => {
+      dispatch({ type: "LOGIN", payload: user });
+      dispatch({ type: "AUTH_READY" });
+    });
+  }, []);
 
-const App = () => {
-  return (
-    <DarkModeProvider>
-      <Routes>
-        <Route element={<ProtectedRoute />}>
-          <Route path="/" element={<Layout />}>
-            <Route index element={<Home />}></Route>
-            <Route path="/about" element={<About />}></Route>
-            <Route path="/profile" element={<Profile />}></Route>
-            <Route path="/likes" element={<Likes />}></Route>
-          </Route>
-        </Route>
-        <Route path="/login" element={<Login />}></Route>
-        <Route path="/register" element={<Register />}></Route>
-      </Routes>
-    </DarkModeProvider>
-  );
-};
+  return <>{authReady && <RouterProvider router={routes} />}</>;
+}
 
 export default App;

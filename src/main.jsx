@@ -1,17 +1,16 @@
 import { createRoot } from "react-dom/client";
-import "./index.css";
 import App from "./App.jsx";
-import { BrowserRouter } from "react-router-dom";
-import store from "./store/store";
-import { Provider } from "react-redux";
+import "./index.css";
+// context
+import { GlobalContextProvider } from "./context/globalContext.jsx";
+
+// react toast
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 createRoot(document.getElementById("root")).render(
-  <Provider store={store}>
-    <BrowserRouter>
-      <App />
-      <ToastContainer position="top-right" />
-    </BrowserRouter>
-  </Provider>
+  <GlobalContextProvider>
+    <App />
+    <ToastContainer position="bottom-right" />
+  </GlobalContextProvider>,
 );

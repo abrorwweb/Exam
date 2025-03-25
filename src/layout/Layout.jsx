@@ -1,20 +1,18 @@
+import React, { useContext } from "react";
 import { Outlet } from "react-router-dom";
-import { useSelector } from "react-redux";
-import Header from "./Header";
-import Footer from "./Footer";
+import Navbar from "../components/Navbar";
+import Footer from "../components/Footer";
 
-const Layout = () => {
-  const darkMode = useSelector((state) => state.theme.darkMode);
-
+function Layout() {
   return (
-    <div className={darkMode ? "dark" : ""}>
-      <Header />
-      <main className="max-w-7xl mx-auto px-5">
+    <>
+      <Navbar />
+      <main>
         <Outlet />
       </main>
       <Footer />
-    </div>
+    </>
   );
-};
+}
 
 export default Layout;
