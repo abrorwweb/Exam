@@ -7,12 +7,13 @@ import {
 } from "firebase/auth";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyDWg_A-py1n50c4YpceKiXIUqtTLtW8a9w",
-  authDomain: "unsplash-by-aao.firebaseapp.com",
-  projectId: "unsplash-by-aao",
-  storageBucket: "unsplash-by-aao.appspot.com",
-  messagingSenderId: "836400092552",
-  appId: "1:836400092552:web:ae18894b658ec31afad63d"
+  apiKey: "AIzaSyA94G9XZSc2F-1LkdKnn48xD7RlIEeVx04",
+  authDomain: "unsplash-2e150.firebaseapp.com",
+  projectId: "unsplash-2e150",
+  storageBucket: "unsplash-2e150.appspot.com",
+  messagingSenderId: "745257135693",
+  appId: "1:745257135693:web:30518186af12f5d5023604",
+  measurementId: "G-J9B87RTB12"
 };
 
 

@@ -9,6 +9,9 @@ import ProtectedRoute from "./components/ProtectedRoute";
 import Profile from "./pages/Profile";
 import Likes from "./pages/Likes";
 
+
+
+
 const App = () => {
   return (
     <DarkModeProvider>
