@@ -7,6 +7,7 @@ import { toast } from "react-toastify";
 import Search from "../../components/Search";
 import { useActionData } from "react-router-dom";
 import { FaSearch } from "react-icons/fa";
+import Carousel from "../../components/Carusel";
 
 // export const action = async ({ request }) => {
 //   let formData = await request.formData();
@@ -32,7 +33,7 @@ function Home() {
   }
 
   return (
-    <div className="align-elements min-h-screen bg-gradient-to-b from-gray-100 to-gray-300 px-6 py-6 md:px-12 lg:px-16 dark:from-gray-900 dark:to-gray-700">
+    <div className="align-elements min-h-screen">
       <div className="my-6">
         <form action="" className="mx-auto flex w-full max-w-96 gap-3">
           <label className="input input-sm input-bordered flex w-full items-center gap-2 rounded-xl border border-gray-400 bg-white px-4 py-2 shadow-md transition-all focus-within:border-blue-500 focus-within:ring-2 focus-within:ring-blue-300 dark:bg-gray-800 dark:focus-within:border-blue-400 dark:focus-within:ring-blue-600">
@@ -73,6 +74,7 @@ function Home() {
             ))}
         </Masonry>
       </ResponsiveMasonry>
+      <Carousel />
 
       {/* Load More Button */}
       <div className="m-8 flex items-center justify-center">

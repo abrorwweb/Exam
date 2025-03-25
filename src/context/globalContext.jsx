@@ -14,7 +14,6 @@ const changeState = (state, action) => {
     case "LOGOUT":
       return { ...state, user: null };
     case "CHANGE_IMAGES":
-      // return { ...state, images: [...state.images, ...payload] };
       return { ...state, images: payload };
     case "SEARCH_VALUE":
       return { ...state, searchValue: payload };
@@ -24,13 +23,15 @@ const changeState = (state, action) => {
       return { ...state, likeImageArr: payload };
     case "DOWNLOAD_IMAGE_ARR":
       return { ...state, downloadImagesArr: payload };
+    case "TOGGLE_DARK_MODE":
+      localStorage.setItem("darkMode", !state.darkMode);
+      return { ...state, darkMode: !state.darkMode };
     default:
       return state;
   }
 };
 
 export function GlobalContextProvider({ children }) {
-  // const [pageNum, setPageNum] = useState(1);
   const [more, setMore] = useState({});
 
   const [state, dispatch] = useReducer(changeState, {
@@ -41,6 +42,7 @@ export function GlobalContextProvider({ children }) {
     per_page: 10,
     likeImageArr: [],
     downloadImagesArr: [],
+    darkMode: localStorage.getItem("darkMode") === "true", // Dark mode saqlanadi
   });
 
   const { data: likedImages } = useCollection("likeImageArr", [
@@ -49,14 +51,13 @@ export function GlobalContextProvider({ children }) {
     state.user && state.user.uid,
   ]);
 
-  //  import.meta.env.VITE_ACCESS_KEY
   useEffect(() => {
     localStorage.setItem("likeImagesArr", JSON.stringify(state.likeImageArr));
-
     localStorage.setItem(
       "downloadImagesArr",
       JSON.stringify(state.downloadImagesArr),
     );
+
     fetch(
       `https://api.unsplash.com/search/photos?client_id=RRVvRp7SkQ-zBpNfkk9i1YLCNn7W7M4x-5dC10sJiD8&query=${
         state.searchValue ?? "all"
@@ -85,8 +86,6 @@ export function GlobalContextProvider({ children }) {
         dispatch,
         setMore,
         more,
-        // setPageNum,
-        // pageNum,
       }}
     >
       {children}

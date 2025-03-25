@@ -2,7 +2,7 @@ import React from "react";
 
 function Footer() {
   return (
-<footer className="footer sm:footer-horizontal bg-base-200 text-base-content p-10 ">
+<footer className="justify-center footer sm:footer-horizontal bg-base-200 text-base-content p-10  gap-[220px] ">
   <nav>
     <h6 className="footer-title">Services</h6>
     <a className="link link-hover">Branding</a>

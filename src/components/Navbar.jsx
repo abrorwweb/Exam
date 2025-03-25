@@ -38,7 +38,7 @@ function Navbar() {
   }, [theme]);
 
   return (
-    <header className="bg-gradient-to-r from-purple-500 to-pink-500 py-3">
+    <header className="bg-gradient-to-r from-purple-500 to-slate-400 py-3">
       <div className="align-elements flex items-center justify-between px-4 md:px-8">
         {/* Logo */}
         <Link to="/" className="flex items-center gap-2">
