@@ -1,5 +1,4 @@
 import { useContext } from "react";
-import kamina from "../../../public/assets/kamina.jpg";
 import { GlobalContext } from "../../context/globalContext";
 function ImageInfo() {
   const { more } = useContext(GlobalContext);
