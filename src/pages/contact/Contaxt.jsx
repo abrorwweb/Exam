@@ -29,7 +29,7 @@ function Contact() {
 
           <p className="mt-4 text-lg text-gray-500 dark:text-gray-400">About Me:</p>
           <p className="text-lg text-gray-700 dark:text-gray-300">
-            I am a passionate Frontend Developer with experience in creating responsive and modern web applications.
+          Men veb-ilovalarni yaratish tajribasiga ega bo'lgan ishtiyoqli Frontend Developerman.
           </p>
 
           
