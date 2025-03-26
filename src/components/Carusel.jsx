@@ -17,7 +17,7 @@ function Carousel() {
       modules={[Autoplay]}
       autoplay={{ delay: 3000, disableOnInteraction: false }}
       loop={true}
-      className="w-full max-w-[1250px] relative"
+      className="w-full max-w-[1250px] relative mt-16"
     >
       {images.map((src, index) => (
         <SwiperSlide key={index} className="relative">

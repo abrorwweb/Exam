@@ -42,7 +42,7 @@ export function GlobalContextProvider({ children }) {
     per_page: 10,
     likeImageArr: [],
     downloadImagesArr: [],
-    darkMode: localStorage.getItem("darkMode") === "true", // Dark mode saqlanadi
+    darkMode: localStorage.getItem("darkMode") === "true", 
   });
 
   const { data: likedImages } = useCollection("likeImageArr", [

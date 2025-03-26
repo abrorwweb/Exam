@@ -1,4 +1,3 @@
-// import firestore
 import {
   collection,
   getDocs,
@@ -6,7 +5,7 @@ import {
   query,
   where,
 } from "firebase/firestore";
-// react
+
 import { useEffect, useState } from "react";
 
 import { db } from "../firebase/firebaseConfig";

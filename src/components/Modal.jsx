@@ -3,7 +3,7 @@ import FormInput from "./FormInput";
 
 function Modal() {
   const data = useActionData();
-  console.log(data); // undefined
+  console.log(data); 
 
   return (
     <dialog id="my_modal_1" className="modal">

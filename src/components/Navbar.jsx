@@ -40,24 +40,24 @@ function Navbar() {
   return (
     <header className="bg-gradient-to-r from-purple-500 to-slate-400 py-3">
       <div className="align-elements flex items-center justify-between px-4 md:px-8">
-        {/* Logo */}
+     
         <Link to="/" className="flex items-center gap-2">
           <FcStackOfPhotos className="text-4xl md:text-6xl" />
         </Link>
 
-        {/* Desktop Nav */}
+     
         <nav className="hidden md:flex gap-6">
           <Link to="/" className="text-white hover:text-yellow-300">Home</Link>
           <Link to="/about" className="text-white hover:text-yellow-300">About</Link>
           <Link to="/contact" className="text-white hover:text-yellow-300">Contact</Link>
         </nav>
 
-        {/* Mobile Menu Button */}
+     
         <button className="md:hidden text-white text-2xl" onClick={() => setIsMenuOpen(!isMenuOpen)}>
           <FaBars />
         </button>
 
-        {/* Mobile Nav */}
+     
         {isMenuOpen && (
           <div className="absolute top-16 left-0 w-full bg-gray-900/90 text-white p-5 md:hidden">
             <Link to="/" className="block py-2 hover:bg-gray-700">Home</Link>
@@ -65,8 +65,8 @@ function Navbar() {
             <Link to="/contact" className="block py-2 hover:bg-gray-700">Contact</Link>
           </div>
         )}
-
-        {/* Right Side Icons */}
+ 
+     
         <div className="flex items-center gap-3 md:gap-4">
           <Link to="/download-images">
             <div className="indicator">
@@ -81,14 +81,14 @@ function Navbar() {
             </div>
           </Link>
 
-          {/* Dark/Light Mode Toggle */}
+     
           <label className="swap swap-rotate">
             <input type="checkbox" onClick={toggleTheme} />
             <FaSun className="swap-on h-5 w-5 text-white md:h-7 md:w-7" />
             <FaMoon className="swap-off h-5 w-5 text-white md:h-7 md:w-7" />
           </label>
 
-          {/* User Dropdown */}
+     
           {user && (
             <div className="dropdown dropdown-end hidden md:flex">
               <div tabIndex={0} role="button" className="avatar btn btn-circle btn-ghost">

@@ -50,10 +50,10 @@ function Login() {
         </button>
       </div>
       <div className="flex flex-col justify-between text-center sm:flex-row">
-        <button className="text-sm text-white underline hover:text-gray-300" type="button">
+        <button className="text-[17px] text-white underline hover:text-gray-300" type="button">
           Forget password
         </button>
-        <Link to="/register" className="text-sm text-white underline hover:text-gray-300">
+        <Link to="/register" className=" text-[17px] text-white underline hover:text-gray-300">
           You don't have an account yet?
         </Link>
       </div>

@@ -32,7 +32,7 @@ function Register() {
   useEffect(() => {
     if (data) {
       registerWithEmail(data.fullName, data.email, data.password);
-      // console.log(data.fullName);
+
     }
   }, [data]);
 

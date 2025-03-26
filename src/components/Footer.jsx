@@ -2,7 +2,7 @@ import React from "react";
 
 function Footer() {
   return (
-<footer className="justify-center footer sm:footer-horizontal bg-base-200 text-base-content p-10  gap-[220px] ">
+<footer className="justify-center footer sm:footer-horizontal bg-base-200 text-base-content p-10  mt-[200px] gap-[220px] ">
   <nav>
     <h6 className="footer-title">Services</h6>
     <a className="link link-hover">Branding</a>
@@ -13,7 +13,7 @@ function Footer() {
   <nav>
     <h6 className="footer-title">Company</h6>
     <a className="link link-hover">About us</a>
-    <a className="link link-hover">Contact</a>
+    <a className="link link-hover">Contact</a>  
     <a className="link link-hover">Jobs</a>
     <a className="link link-hover">Press kit</a>
   </nav>

@@ -18,7 +18,7 @@ import { GlobalContext } from "./context/globalContext";
 import { onAuthStateChanged } from "firebase/auth";
 import { auth } from "./firebase/firebaseConfig";
 import Profile from "./pages/profile/Profile";
-// import { action as HomeActions } from "./pages/home/Home";
+
 
 function App() {
   let { user, dispatch, authReady } = useContext(GlobalContext);
@@ -34,9 +34,7 @@ function App() {
       children: [
         {
           index: true,
-          element: <Home />,
-          // action: HomeActions,
-        },
+          element: <Home />,        },
         {
           path: "/about",
           element: <About />,

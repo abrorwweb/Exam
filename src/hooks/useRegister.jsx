@@ -12,7 +12,7 @@ import { GlobalContext } from "../context/globalContext";
 
 export const useRegister = () => {
   const { dispatch } = useContext(GlobalContext);
-  // google rqali ro'yxatdan o'tish
+  
   const registerWithGoogle = () => {
     const provider = new GoogleAuthProvider();
 
@@ -28,7 +28,7 @@ export const useRegister = () => {
       });
   };
 
-  // email va password orqali ro'yxatdan o'tish
+  
   const registerWithEmail = (displayname, email, password) => {
     createUserWithEmailAndPassword(auth, email, password)
       .then(async (userCredential) => {

@@ -23,6 +23,3 @@ function Like() {
 }
 
 export default Like;
-//
-//   urls={item.urls}
-//   alt={item.alt_description}
