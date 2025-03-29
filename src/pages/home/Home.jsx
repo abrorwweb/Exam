@@ -89,7 +89,7 @@ function Home() {
       <div className="m-8 flex items-center justify-center">
         <button
           onClick={() => {
-            dispatch({ type: "PER_PAGE", payload: per_page + 20});
+            dispatch({ type: "PER_PAGE", payload: per_page + 10});
           }}
           className="rounded-xl bg-gray-700 px-12 py-4 text-lg font-semibold text-white shadow-md transition-all hover:scale-105 hover:bg-black dark:bg-gray-600 dark:hover:bg-gray-500"
         >

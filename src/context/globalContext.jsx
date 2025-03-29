@@ -39,7 +39,7 @@ export function GlobalContextProvider({ children }) {
     authReady: false,
     images: [],
     searchValue: "all",
-    per_page: 10,
+    per_page: 30,
     likeImageArr: [],
     downloadImagesArr: [],
     darkMode: localStorage.getItem("darkMode") === "true", 
